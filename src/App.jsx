@@ -18,7 +18,14 @@ const App= () =>{
     setInputList('');
   };
 
-  
+  const deleteitems = (id) =>{
+    console.log("del");
+    setItems((oldItems)=>{
+      return oldItems.filter((arrElem ,index)=>{
+          return index !== id;
+      })
+    })
+}
     return (
     <>
     <div className="main_div">
@@ -33,8 +40,9 @@ const App= () =>{
   
   
         <ol>
-          {Items.map( (itemval) =>{
-            return <Todolist text ={itemval}/>;
+          {Items.map( (itemval, index) =>{
+            return <Todolist key={index} id={index} text ={itemval} onSelect={deleteitems}
+            />;
           })}
         </ol>
       </div>
