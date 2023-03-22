@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Todolist from'./Todolist';
 const App= () =>{
-// 16:24 se dekna hai video
   const [inputList, setInputList] =useState("");
   const[Items, setItems]=useState([]); 
   
