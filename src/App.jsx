@@ -2,12 +2,19 @@ import React, { useState } from 'react';
 const App= () =>{
 // 16:24 se dekna hai video
   const [inputList, setInputList] =useState("");
+  const[Items, setItems]=useState([]); 
+  
   const itemEvent =(event) =>{
       setInputList(event.target.value);
   };
 
-  const listOfItems = () =>{
 
+  //yeh code list me value add karega and jab aap button click karoge tab woh value main box se gaya ho jayegi and list me save ho jayegi
+  const listOfItems = () =>{
+    setItems((oldItems) =>{
+      return [...oldItems, inputList]
+    });
+    setInputList('');
   };
 
   
@@ -18,12 +25,16 @@ const App= () =>{
         <br />
         <h1> ToDo List</h1>
         <br />
-        <input type="text" placeholder='Add a items' onChange={itemEvent}/>
+        <input type="text" placeholder='Add a items' 
+        value={inputList}
+        onChange={itemEvent}/>
         <button onClick={listOfItems}> + </button>
   
   
         <ol>
-          <li>{inputList}</li>
+          {Items.map( (itemval) =>{
+            return <li>{itemval}</li>
+          })}
         </ol>
       </div>
     </div>
