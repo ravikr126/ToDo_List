@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Todolist from'./Todolist';
 const App= () =>{
 // 16:24 se dekna hai video
   const [inputList, setInputList] =useState("");
@@ -33,7 +34,7 @@ const App= () =>{
   
         <ol>
           {Items.map( (itemval) =>{
-            return <li>{itemval}</li>
+            return <Todolist text ={itemval}/>;
           })}
         </ol>
       </div>
