@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 const App= () =>{
-
+// 16:24 se dekna hai video
   const [inputList, setInputList] =useState("");
   const itemEvent =(event) =>{
       setInputList(event.target.value);
